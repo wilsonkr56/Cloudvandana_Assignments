@@ -1,0 +1,33 @@
+function reverseWords(sentence) {
+    let words = [];
+    let word = '';
+    for (let i = 0; i < sentence.length; i++) {
+        if (sentence[i] === ' ' || i === sentence.length - 1) {
+            
+            if (i === sentence.length - 1) {
+                word += sentence[i];
+            }
+            words.push(word);
+            word = '';
+        } else {
+            word += sentence[i];
+        }
+    }
+
+    let reversedSentence = '';
+    for (let i = 0; i < words.length; i++) {
+        let reversedWord = '';
+        for (let j = words[i].length - 1; j >= 0; j--) {
+            reversedWord += words[i][j];
+        }
+        reversedSentence += reversedWord;
+        if (i < words.length - 1) {
+            reversedSentence += ' ';
+        }
+    }
+
+    return reversedSentence;
+}
+
+let inputSentence = prompt();
+let reversedSentence = reverseWords(inputSentence);
